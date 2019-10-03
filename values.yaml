@@ -66,6 +66,7 @@ auth:
     discovery_url: ""
     client_id: ""
     client_secret: ""
+
 tls:
   keystore_path: ""
   keystore_type: ""
