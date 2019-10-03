@@ -48,7 +48,7 @@
         <property name="Users File">./conf/users.xml</property>
         <property name="Legacy Authorized Users File"></property>
 {{- range $i := until $replicas }}
-    {{- if .Values.auth.oidc.enabled}}
+    {{- if $oidc.enabled}}
         <property name="Initial User Identity {{ $i }}">{{ $oidc.initial_user }}</property>
     {{- else }}
         <property name="Initial User Identity {{ $i }}">CN={{ $release }}-{{ $chart }}-{{ $i }}.{{ $release }}-{{ $chart }}-headless.{{ $namespace }}.svc.cluster.local, OU=NIFI</property>
