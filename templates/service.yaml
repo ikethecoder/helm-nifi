@@ -1,4 +1,3 @@
-{{- $service := .Values.service.headless -}}
 ---
 apiVersion: v1
 kind: Service
