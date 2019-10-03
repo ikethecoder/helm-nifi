@@ -204,6 +204,7 @@ spec:
             - bash
             - -c
             - |
+              exit 0
 {{- if .Values.properties.httpsPort }}
               curl -kv \
                 --cert ${NIFI_BASE_DIR}/data/cert/admin/crt.pem --cert-type PEM \
