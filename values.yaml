@@ -74,6 +74,7 @@ tls:
   truststore_path: ""
   truststore_type: ""
   truststore_password: ""
+  web_proxy_host: ""
 
 ## Expose the nifi service to be accessed from outside the cluster (LoadBalancer service).
 ## or access it from within the cluster (ClusterIP service). Set the service type and the port to serve it.
