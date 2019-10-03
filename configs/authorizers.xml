@@ -46,7 +46,9 @@
         <class>org.apache.nifi.authorization.FileUserGroupProvider</class>
         <property name="Users File">./conf/users.xml</property>
         <property name="Legacy Authorized Users File"></property>
-        <property name="Initial User Identity 0">{{ .Values.auth.oidc.initial_user }}</property>
+{{- range $i := until $replicas }}
+        <property name="Initial User Identity {{ $i }}">{{ .Values.auth.oidc.initial_user }}</property>
+{{- end }}        
         <property name="Initial User Identity admin">CN=admin, OU=NIFI</property>
     </userGroupProvider>
     <!--
