@@ -56,7 +56,7 @@ spec:
 {{- if .Values.properties.clusterSecure }}
     - port: {{ .Values.service.loadBalancer.httpsPort }}
       name: https
-    {{- if and (eq "NodePort".Values.service.loadBalancer.type) .Values.service.loadBalancer.nodePort }}
+    {{- if and (eq "NodePort" .Values.service.loadBalancer.type) .Values.service.loadBalancer.nodePort }}
       nodePort: {{ .Values.service.loadBalancer.nodePort }}
     {{- end }}
       targetPort: {{ .Values.properties.httpsPort }}
