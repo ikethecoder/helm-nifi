@@ -61,6 +61,19 @@ auth:
     host: ldap://<hostname>:<port>
     searchBase: CN=Users,DC=example,DC=com
     searchFilter: CN=john
+  oidc:
+    enabled: false
+    discovery_url: ""
+    client_id: ""
+    client_secret: ""
+tls:
+  keystore_path: ""
+  keystore_type: ""
+  keystore_password: ""
+  key_password: ""
+  truststore_path: ""
+  truststore_type: ""
+  truststore_password: ""
 
 ## Expose the nifi service to be accessed from outside the cluster (LoadBalancer service).
 ## or access it from within the cluster (ClusterIP service). Set the service type and the port to serve it.
