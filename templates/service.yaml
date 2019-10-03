@@ -1,3 +1,4 @@
+{{- $service := .Values.service.headless -}}
 ---
 apiVersion: v1
 kind: Service
@@ -17,6 +18,9 @@ spec:
 {{- if .Values.properties.clusterSecure }}
     - port: {{ .Values.properties.httpsPort }}
       name: https
+    {{- if and (eq "NodePort" $service.type) $service.nodePort }}
+      nodePort: {{ $service.nodePort }}
+    {{- end }}
 {{- else}}
     - port: {{ .Values.properties.httpPort }}
       name: http
