@@ -131,6 +131,10 @@ spec:
         env:
         - name: NIFI_ZOOKEEPER_CONNECT_STRING
           value: {{ template "zookeeper.url" . }}
+{{- if .Values.auth.oidc.enabled }}
+        - name: AUTH
+          value: "tls"
+{{- end }}          
         - name: KEYSTORE_PATH
           value: "{{ .Values.tls.keystore_path }}"
         - name: KEYSTORE_TYPE
