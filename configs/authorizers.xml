@@ -2,7 +2,6 @@
 {{- $chart := .Chart.Name }}
 {{- $release := .Release.Name }}
 {{- $namespace := .Release.Namespace }}
-{{- $oidc := .Values.auth.oidc }}
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <!--
   Licensed to the Apache Software Foundation (ASF) under one or more
@@ -48,7 +47,7 @@
         <property name="Users File">./conf/users.xml</property>
         <property name="Legacy Authorized Users File"></property>
 {{- range $i := until $replicas }}
-        <property name="Initial User Identity {{ $i }}">{{ $oidc.initial_user }}</property>
+        <property name="Initial User Identity {{ $i }}">{{ .Values.auth.oidc.initial_user }}</property>
 {{- end }}        
         <property name="Initial User Identity admin">CN=admin, OU=NIFI</property>
     </userGroupProvider>
