@@ -67,6 +67,7 @@ auth:
     client_id: ""
     client_secret: ""
     identifying_user: ""
+    initial_user: ""
 
 tls:
   keystore_path: ""
