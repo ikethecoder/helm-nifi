@@ -123,6 +123,7 @@ spec:
           prop_replace 'nifi.web.https.port'  "${NIFI_WEB_HTTPS_PORT:-8443}"
           prop_replace 'nifi.web.https.host'  "${NIFI_WEB_HTTPS_HOST:-$HOSTNAME}"
           prop_replace 'nifi.remote.input.secure' 'true'
+          prop_replace 'nifi.cluster.protocol.is.secure' 'true'
 
           # Setup nifi-toolkit
           prop_replace 'baseUrl' "https://${NIFI_WEB_HTTPS_HOST:-$HOSTNAME}:${NIFI_WEB_HTTPS_PORT:-8443}" ${nifi_toolkit_props_file}
