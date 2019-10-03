@@ -131,20 +131,7 @@ spec:
         env:
         - name: NIFI_ZOOKEEPER_CONNECT_STRING
           value: {{ template "zookeeper.url" }}
-        - name: KEYSTORE_PATH
-          value: "{{ .Values.tls.keystore_path }}"
-        - name: KEYSTORE_TYPE
-          value: "{{ .Values.tls.keystore_type }}"
-        - name: KEYSTORE_PASSWORD
-          value: "{{ .Values.tls.keystore_password }}"
-        - name: KEY_PASSWORD
-          value: "{{ .Values.tls.key_password }}"
-        - name: TRUSTSTORE_PATH
-          value: "{{ .Values.tls.truststore_path }}"
-        - name: TRUSTSTORE_TYPE
-          value: "{{ .Values.tls.truststore_type }}"
-        - name: TRUSTSTORE_PASSWORD
-          value: "{{ .Values.tls.truststore_password }}"
+
         lifecycle:
           preStop:
             exec:
