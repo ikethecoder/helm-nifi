@@ -217,7 +217,7 @@
         <property name="Initial Admin Identity">{{ .Values.auth.oidc.initial_user }}</property>
         <property name="Legacy Authorized Users File"></property>
 {{- range $i := until $replicas }}
-        <property name="Node Identity {{ $i }}">CN={{ $release }}-{{ $chart }}-{{ $i }}.{{ $release }}-{{ $chart }}-headless.{{ $namespace }}.svc.cluster.local</property>
+        <property name="Node Identity {{ $i }}">CN={{ $release }}-{{ $chart }}-{{ $i }}.{{ $release }}-{{ $chart }}-headless.{{ $namespace }}.svc.cluster.local, OU=NIFI</property>
 {{- end }}
     </accessPolicyProvider>
      <!--
