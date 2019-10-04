@@ -97,11 +97,7 @@ spec:
 
           cat "${NIFI_HOME}/conf/nifi.temp" > "${NIFI_HOME}/conf/nifi.properties"
 
-          if [[ $(grep $(hostname) conf/authorizers.temp) ]]; then
-            cat "${NIFI_HOME}/conf/authorizers.temp" > "${NIFI_HOME}/conf/authorizers.xml"
-          else
-            cat "${NIFI_HOME}/conf/authorizers.empty" > "${NIFI_HOME}/conf/authorizers.xml"
-          fi
+          cat "${NIFI_HOME}/conf/authorizers.temp" > "${NIFI_HOME}/conf/authorizers.xml"
 
           prop_replace nifi.remote.input.host ${FQDN}
           prop_replace nifi.cluster.node.address ${FQDN}
