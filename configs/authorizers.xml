@@ -46,7 +46,7 @@
         <class>org.apache.nifi.authorization.FileUserGroupProvider</class>
         <property name="Users File">./conf/users.xml</property>
         <property name="Legacy Authorized Users File"></property>
-        <property name="Initial User Identity 0">nifi-0.nifi-headless.nifi.svc.cluster.local</property>
+        <property name="Initial User Identity 0">CN=nifi-nifi-0.nifi-headless.nifi.svc.cluster.local, OU=NIFI</property>
         <property name="Initial User Identity admin">{{ .Values.auth.oidc.initial_user }}</property>
     </userGroupProvider>
     <!--
@@ -216,7 +216,7 @@
         <property name="Authorizations File">./conf/authorizations.xml</property>
         <property name="Initial Admin Identity">{{ .Values.auth.oidc.initial_user }}</property>
         <property name="Legacy Authorized Users File"></property>
-        <property name="Node Identity 0">nifi-0.nifi-headless.nifi.svc.cluster.local</property>
+        <property name="Node Identity 0">CN=nifi-nifi-0.nifi-headless.nifi.svc.cluster.local, OU=NIFI</property>
     </accessPolicyProvider>
      <!--
         The StandardManagedAuthorizer. This authorizer implementation must be configured with the
