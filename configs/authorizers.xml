@@ -49,9 +49,7 @@
 {{- range $i := until $replicas }}
         <property name="Initial User Identity {{ $i }}">CN={{ $release }}-{{ $chart }}-{{ $i }}.{{ $release }}-{{ $chart }}-headless.{{ $namespace }}.svc.cluster.local, OU=NIFI</property>
 {{- end }}  
-{{- if .Values.auth.oidc.enabled}}
         <property name="Initial User Identity admin">{{ .Values.auth.oidc.initial_user }}</property>
-{{- end }}
     </userGroupProvider>
     <!--
         The LdapUserGroupProvider will retrieve users and groups from an LDAP server. The users and groups
@@ -218,9 +216,7 @@
         <class>org.apache.nifi.authorization.FileAccessPolicyProvider</class>
         <property name="User Group Provider">file-user-group-provider</property>
         <property name="Authorizations File">./conf/authorizations.xml</property>
-{{- if .Values.auth.oidc.enabled}}
         <property name="Initial Admin Identity">{{ .Values.auth.oidc.initial_user }}</property>
-{{- end }}
         <property name="Legacy Authorized Users File"></property>
 {{- range $i := until $replicas }}
         <property name="Initial User Identity {{ $i }}">CN={{ $release }}-{{ $chart }}-{{ $i }}.{{ $release }}-{{ $chart }}-headless.{{ $namespace }}.svc.cluster.local, OU=NIFI</property>
