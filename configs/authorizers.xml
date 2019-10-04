@@ -46,8 +46,7 @@
         <class>org.apache.nifi.authorization.FileUserGroupProvider</class>
         <property name="Users File">./conf/users.xml</property>
         <property name="Legacy Authorized Users File"></property>
-        <property name="Initial User Identity 1">{{ .Values.auth.oidc.initial_user }}</property>
-        <property name="Initial User Identity admin">CN=admin, OU=NIFI</property>
+        <property name="Initial User Identity 0">nifi-0.nifi-headless.nifi.svc.cluster.local</property>
     </userGroupProvider>
     <!--
         The LdapUserGroupProvider will retrieve users and groups from an LDAP server. The users and groups
