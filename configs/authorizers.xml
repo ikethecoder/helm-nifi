@@ -48,7 +48,7 @@
         <property name="Legacy Authorized Users File"></property>
 {{- range $i := until $replicas }}
         <property name="Initial User Identity {{ $i }}">CN={{ $release }}-{{ $chart }}-{{ $i }}.{{ $release }}-{{ $chart }}-headless.{{ $namespace }}.svc.cluster.local, OU=NIFI</property>
-{{- end }}  
+{{- end }}
         <property name="Initial User Identity admin">{{ .Values.auth.oidc.initial_user }}</property>
     </userGroupProvider>
     <!--
