@@ -181,7 +181,7 @@ spec:
         - name: NIFI_WEB_PROXY_HOST
           value: "{{ .Values.tls.web_proxy_host }}"
         - name: NIFI_REMOTE_INPUT_HOST
-          value: "{{ .Values.properties.site2site.remoteInputHost }}"
+          value: "{{ .Values.properties.siteToSite.remoteInputHost }}"
         lifecycle:
           preStop:
             exec:
