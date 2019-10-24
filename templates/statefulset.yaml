@@ -79,6 +79,21 @@ spec:
       imagePullSecrets:
         - name: {{ .Values.image.pullSecret }}
       {{- end }}
+      - name: init-acl
+        image: busybox
+        command:
+        - sh
+        - -c
+        - |
+          [ ! -f /acl/users.xml ] && echo '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><tenants><groups/><users/></tenants>' > /acl/users.xml
+          [ ! -f /acl/authorizations.xml ] && echo '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><authorizations><policies/></authorizations>' > /acl/authorizations.xml
+        volumeMounts:
+          - name: "acl"
+            mountPath: /acl/users.xml
+            subPath: "users.xml"
+          - name: "acl"
+            mountPath: /acl/authorizations.xml
+            subPath: "authorizations.xml"        
       containers:
       - name: server
         imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
