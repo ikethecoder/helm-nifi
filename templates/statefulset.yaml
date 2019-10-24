@@ -89,11 +89,7 @@ spec:
           [ ! -f /acl/authorizations.xml ] && echo '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><authorizations><policies/></authorizations>' > /acl/authorizations.xml
         volumeMounts:
           - name: "acl"
-            mountPath: /acl/users.xml
-            subPath: "users.xml"
-          - name: "acl"
-            mountPath: /acl/authorizations.xml
-            subPath: "authorizations.xml"        
+            mountPath: /acl
       containers:
       - name: server
         imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
