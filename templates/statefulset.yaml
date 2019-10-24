@@ -129,6 +129,7 @@ spec:
               echo 'NIFI_WEB_PROXY_HOST was not set but NiFi is configured to run in a secure mode.  The NiFi UI may be inaccessible if using port mapping.'
           else
               prop_replace 'nifi.web.proxy.host' "${NIFI_WEB_PROXY_HOST}"
+              prop_replace 'nifi.remote.input.host' "${NIFI_WEB_PROXY_HOST}"
           fi
 
 {{- else }}
