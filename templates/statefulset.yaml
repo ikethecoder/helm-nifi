@@ -230,6 +230,12 @@ spec:
             port: {{ .Values.properties.httpPort }}
 {{- end }}
         volumeMounts:
+          - name: "acl"
+            mountPath: /opt/nifi/nifi-current/conf/users.xml
+            subPath: "users.xml"
+          - name: "acl"
+            mountPath: /opt/nifi/nifi-current/conf/authorizations.xml
+            subPath: "authorizations.xml"        
           - name: "data"
             mountPath: /opt/nifi/data
           - name: "flowfile-repository"
@@ -368,6 +374,8 @@ spec:
           secretName: {{ .name }}
       {{- end }}
 {{- if not .Values.persistence.enabled }}
+      - name: acl
+        emptyDir: {}
       - name: data
         emptyDir: {}
       - name: flowfile-repository
@@ -381,6 +389,17 @@ spec:
 {{- end }}
 {{- if .Values.persistence.enabled }}
   volumeClaimTemplates:
+    - metadata:
+        name: acl
+      spec:
+        accessModes:
+        {{- range .Values.persistence.accessModes }}
+          - {{ . | quote }}
+        {{- end }}
+        storageClassName: {{ .Values.persistence.storageClass | quote }}
+        resources:
+          requests:
+            storage: 1Gi
     - metadata:
         name: data
       spec:
