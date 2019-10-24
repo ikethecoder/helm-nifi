@@ -48,6 +48,7 @@ properties:
   siteToSite:
     secure: false
     port: 10000
+    remoteInputHost: ""
   authorizer: managed-authorizer
 
 ## Include additional libraries in the Nifi containers by using the postStart handler
