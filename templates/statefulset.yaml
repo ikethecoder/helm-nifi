@@ -79,14 +79,14 @@ spec:
       imagePullSecrets:
         - name: {{ .Values.image.pullSecret }}
       {{- end }}
-      - name: init-acl
-        image: busybox
-        command:
-        - sh
-        - -c
-        - |
-          if [ ! -f /acl/users.xml ]; then echo '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><tenants><groups/><users/></tenants>' > /acl/users.xml; fi
-          if [ ! -f /acl/authorizations.xml ]; echo '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><authorizations><policies/></authorizations>' > /acl/authorizations.xml; fi
+#      - name: init-acl
+#        image: busybox
+#        command:
+#        - sh
+#        - -c
+#        - |
+#          if [ ! -f /acl/users.xml ]; then echo '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><tenants><groups/><users/></tenants>' > /acl/users.xml; fi
+#          if [ ! -f /acl/authorizations.xml ]; echo '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><authorizations><policies/></authorizations>' > /acl/authorizations.xml; fi
         volumeMounts:
           - name: "acl"
             mountPath: /acl
