@@ -87,7 +87,7 @@ spec:
         - |
           set +e
           if [ ! -f /acl/users.xml ]; then echo '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><tenants><groups/><users/></tenants>' > /acl/users.xml; fi
-          if [ ! -f /acl/authorizations.xml ]; echo '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><authorizations><policies/></authorizations>' > /acl/authorizations.xml; fi
+          if [ ! -f /acl/authorizations.xml ]; then echo '<?xml version="1.0" encoding="UTF-8" standalone="yes"?><authorizations><policies/></authorizations>' > /acl/authorizations.xml; fi
         volumeMounts:
           - name: "acl"
             mountPath: /acl
