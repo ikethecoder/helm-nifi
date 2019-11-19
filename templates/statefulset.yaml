@@ -220,7 +220,7 @@ spec:
               curl -kv \
                 --cert ${NIFI_BASE_DIR}/data/cert/admin/crt.pem --cert-type PEM \
                 --key ${NIFI_BASE_DIR}/data/cert/admin/key.pem --key-type PEM \
-                https://$(hostname -f):8443/nifi-api/controller/cluster > $NIFI_BASE_DIR/data/cluster.state
+                https://$(hostname -f):8080/nifi-api/controller/cluster > $NIFI_BASE_DIR/data/cluster.state
 {{- else }}
               curl -kv \
                 http://$(hostname -f):{{ .Values.properties.httpPort }}/nifi-api/controller/cluster > $NIFI_BASE_DIR/data/cluster.state
