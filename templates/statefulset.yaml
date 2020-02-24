@@ -334,7 +334,7 @@ spec:
               {{- end }}
             {{- end }}
           {{- end }}
-          {{- if .Values.persistence.enabled and .Values.persistence.landing.enabled }}
+          {{- if and .Values.persistence.enabled .Values.persistence.landing.enabled }}
           - name: {{ include "apache-nifi.fullname" $ }}-landing
             mountPath: /landing
             readOnly: false
@@ -423,7 +423,7 @@ spec:
         secret:
           secretName: {{ .name }}
       {{- end }}
-      {{- if .Values.persistence.enabled and .Values.persistence.landing.enabled }}
+      {{- if and .Values.persistence.enabled .Values.persistence.landing.enabled }}
       - name: {{ include "apache-nifi.fullname" $ }}-landing
         hostPath:
           path: {{ .Values.persistence.landing.path }}
