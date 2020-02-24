@@ -334,6 +334,11 @@ spec:
               {{- end }}
             {{- end }}
           {{- end }}
+          {{- if .Values.persistence.enabled and .Values.persistence.landing.enabled }}
+          - name: {{ include "apache-nifi.fullname" $ }}-landing
+            mountPath: /landing
+            readOnly: false
+          {{- end }}
       - name: app-log
         image: {{ .Values.sidecar.image }}
         args: [tail, -n+1, -F, /var/log/nifi-app.log]
