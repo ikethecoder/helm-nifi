@@ -158,6 +158,7 @@ persistence:
   # Storage location for receiving and sending files
   landing:
     enabled: true
+    path: /host/path
 
 ## Configure resource requests and limits
 ## ref: http://kubernetes.io/docs/user-guide/compute-resources/
