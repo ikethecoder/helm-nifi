@@ -157,7 +157,7 @@ persistence:
     size: 5Gi
   # Storage location for receiving and sending files
   landing:
-    enabled: true
+    enabled: false
     path: /host/path
 
 ## Configure resource requests and limits
