@@ -426,7 +426,7 @@ spec:
       {{- if and .Values.persistence.enabled .Values.persistence.landing.enabled }}
       - name: {{ include "apache-nifi.fullname" $ }}-landing
         persistentVolumeClaim:
-          claimName: landing-pv
+          claimName: landing-pv-claim
       {{- end }}         
 {{- if not .Values.persistence.enabled }}
       - name: acl
