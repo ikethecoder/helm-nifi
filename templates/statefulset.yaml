@@ -443,7 +443,7 @@ spec:
     - metadata:
         name: {{ include "apache-nifi.fullname" $ }}-landing
       spec:
-        volumeName: "nifi-landing"
+        volumeName: "pvc-nifi-landing"
         accessModes:
         {{- range .Values.persistence.accessModes }}
           - {{ . | quote }}
