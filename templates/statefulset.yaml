@@ -451,7 +451,7 @@ spec:
         storageClassName: {{ .Values.persistence.storageClass | quote }}
         resources:
           requests:
-            storage: { .Values.persistence.landing.size }}
+            storage: {{ .Values.persistence.landing.size }}
     {{- end }}
     - metadata:
         name: acl
