@@ -448,7 +448,7 @@ spec:
         {{- range .Values.persistence.accessModes }}
           - {{ . | quote }}
         {{- end }}
-        storageClassName: {{ .Values.persistence.storageClass | quote }}
+        storageClassName: {{ .Values.persistence.landing.storageClass | quote }}
         resources:
           requests:
             storage: {{ .Values.persistence.landing.size }}
