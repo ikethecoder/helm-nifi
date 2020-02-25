@@ -447,10 +447,10 @@ spec:
         {{- range .Values.persistence.accessModes }}
           - {{ . | quote }}
         {{- end }}
-        storageClassName: local-path
+        storageClassName: {{ .Values.persistence.storageClass | quote }}
         resources:
           requests:
-            storage: 500Gi
+            storage: { .Values.persistence.landing.size }}
     {{- end }}
     - metadata:
         name: acl
