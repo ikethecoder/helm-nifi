@@ -147,7 +147,6 @@ spec:
           prop_replace nifi.remote.input.host ${FQDN}
           prop_replace nifi.cluster.node.address ${FQDN}
           
-{{- if .Values.auth.oidc.enabled }}
           prop_replace nifi.web.https.host ${FQDN}
           
           prop_replace 'nifi.security.keystore'           "${KEYSTORE_PATH}"
@@ -177,9 +176,6 @@ spec:
               prop_replace 'nifi.remote.input.host' "${NIFI_REMOTE_INPUT_HOST}"
           fi
 
-{{- else }}
-          prop_replace nifi.web.http.host ${FQDN}
-{{- end }}
           prop_replace nifi.zookeeper.connect.string ${NIFI_ZOOKEEPER_CONNECT_STRING}
 
           exec bin/nifi.sh run
